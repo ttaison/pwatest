@@ -35,12 +35,12 @@ self.addEventListener('activate', function(e){
 		caches.keys().then(function(keyList) {
 			return Promise.all(keyList.map(function(key){
 				if (key !== cacheName){
-					console.log('[ServiceWorker Removing old cache', key);
+					console.log('[ServiceWorker] Removing old cache', key);
 					return caches.delete(key);
 				}
 			}));
 		})
-});
+);
 	return self.clients.claim();
 });
 
